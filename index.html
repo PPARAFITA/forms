@@ -1,0 +1,36 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+ <body>
+   <div class="container">
+  <div class="left">
+      <div class="header">
+        <h2 class="animation a1">Welcome!</h2>
+        <h4 class="animation a2">Select what type app you want to require</h4>
+      </div>
+      <div class="form">
+        <!--<input type="email" class="form-field animation a3" placeholder="Email Address">
+        <input type="password" class="form-field animation a4" placeholder="Password">
+        <p class="animation a5"><a href="#">Forgot Password</a></p>-->
+        <button id="btnPowerApps"class="animation a6" onclick="powerAppsPage()" >PowerApps</button>
+        <button class="animation a6" onclick="odataPage()">OData</button>
+        <button class="animation a6" onclick="fioriPage()">Fiori</button>
+      </div>
+    </div>
+    <div class="right"></div>
+  </div>
+  <script type="text/javascript">
+    document.getElementById("btnPowerApps").onclick = function () {
+        location.href = "powerAppsPage.html";
+    };
+</script>
+</body>   
+  </html>
