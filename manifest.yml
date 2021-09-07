@@ -1,0 +1,5 @@
+applications:
+- name: requestform
+  path: .
+  buildpack: nodejs_buildpack
+  memory: 128M
