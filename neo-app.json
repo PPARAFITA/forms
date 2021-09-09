@@ -1,4 +1,4 @@
 {
-  "welcomeFile": "/public/index.html",
+  "welcomeFile": "/index.html",
    "sendWelcomeFileRedirect": true
 }

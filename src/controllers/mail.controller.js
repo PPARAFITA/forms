@@ -1,25 +1,34 @@
-const htmlMail = require('./emailBody')
+const htmlMail = require("./emailBody");
 const nodemailer = require("nodemailer");
 const mailer = {};
 
 mailer.enviarMail = async (req, res) => {
-  let status = await mailTo(req);
-  console.log(status);
-  
+  await mailTo(req)
+    .then((response) => {return(response)})
+    .catch(function(error){console.log(error)});
 };
 
-async function mailTo(req) {
+function mailTo(req) {
   return new Promise((resolve, reject) => {
     //let testAccount = await nodemailer.createTestAccount();
-    console.log(req.email);
-    var transport = nodemailer.createTransport({
+
+    /*var transport = nodemailer.createTransport({
       host: "smtp-mail.outlook.com",
       port: 587,
       secure: false, // true for 465, false for other ports
       auth: {
         user: "ppa_56@hotmail.com",
         pass: "Tone2015",
-      },
+      },*/
+      var transport = nodemailer.createTransport({
+        host: "smtp.mailtrap.io",
+        port: 2525,
+        secure: false, // true for 465, false for other ports
+        auth: {
+          user: "60c2b39dedde94",
+          pass: "2a42b73dcf22e6",
+        },
+
     });
 
     transport.sendMail(
@@ -27,8 +36,8 @@ async function mailTo(req) {
         from: "ppa_56@hotmail.com",
         to: req.email,
         subject: "New Request",
-        text:"Dear" + req.name,
-        html: htmlMail
+        text: "Dear" + req.name,
+        html: htmlMail,
       },
       (error, info) => {
         if (error) {
