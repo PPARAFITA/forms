@@ -1,35 +1,41 @@
 const htmlMail = require("./emailBody");
 const nodemailer = require("nodemailer");
+const SapCFMailer = require("sap-cf-mailer").default;
 const mailer = {};
 
-mailer.enviarMail = async (req, res) => {
-  await mailTo(req)
-    .then((response) => {return(response)})
-    .catch(function(error){console.log(error)});
+mailer.enviarMail = async (input ) => {
+  await mailTo(input)
+    .then((response) => {
+      return response;
+    })
+    .catch(function (error) {
+        console.log(error);
+        return error
+    });
 };
 
 function mailTo(req) {
   return new Promise((resolve, reject) => {
     //let testAccount = await nodemailer.createTestAccount();
 
-    /*var transport = nodemailer.createTransport({
+     /*var transport = nodemailer.createTransport({
       host: "smtp-mail.outlook.com",
       port: 587,
-      secure: false, // true for 465, false for other ports
+      secure: true, // true for 465, false for other ports
       auth: {
-        user: "ppa_56@hotmail.com",
-        pass: "Tone2015",
-      },*/
+    
+      },
       var transport = nodemailer.createTransport({
-        host: "smtp.mailtrap.io",
-        port: 2525,
+        host: "smtp.office365.com",
+        port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-          user: "60c2b39dedde94",
-          pass: "2a42b73dcf22e6",
-        },
 
-    });
+        },
+    });*/
+
+
+    var transport = new SapCFMailer("outlook");
 
     transport.sendMail(
       {
@@ -42,7 +48,7 @@ function mailTo(req) {
       (error, info) => {
         if (error) {
           console.log(error);
-          resolve(500);
+          reject(error);
         } else {
           console.log("lo ejecuto bien");
           resolve(200);

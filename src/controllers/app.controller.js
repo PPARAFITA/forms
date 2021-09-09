@@ -11,7 +11,7 @@ controller.index = (req, res) => {
   res.sendFile(path.join(__dirname, "../../public/index.html"));
 };
 
-controller.mail = (request, resp) => {
+controller.mail = async (request, resp) => {
   // var status = mailer.enviarMail()
   //  var status = new Observable((observer) => {
   //    observer.next(mailer.enviarMail(request));
@@ -19,8 +19,9 @@ controller.mail = (request, resp) => {
 
   //status.subscribe(response => console.log('mail' + response));
 
-mailer.enviarMail(request)
+  var status = await mailer.enviarMail(request.body);
 
+  resp.send(status);
 
   //console.log(status);
   //res.send(status);
