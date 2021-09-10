@@ -1,4 +1,5 @@
 const mailer = require("./mail.controller");
+const sp = require("./sharepoint.controller");
 const controller = {};
 const path = require("path");
 const { request } = require("http");
@@ -9,6 +10,10 @@ const publicPath = path.resolve(__dirname, "public");
 
 controller.index = (req, res) => {
   res.sendFile(path.join(__dirname, "../../public/index.html"));
+};
+
+controller.sharepoint = (req, res) => {
+  sp.getList();
 };
 
 controller.mail = async (request, resp) => {
