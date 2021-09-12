@@ -20,10 +20,10 @@ function mailTo(req) {
     //let testAccount = await nodemailer.createTestAccount();
     const CLIENT_ID =
       "539214896531-5kd3gvis26kkaqh1e0jg2o6qth9hvbur.apps.googleusercontent.com";
-    const CLIENT_SECRET = "fkWMQfOafkPM0_NNiq1nEnL9";
+    const CLIENT_SECRET = "" ;
     const REDIRECT_URI = "https://developers.google.com/oauthplayground";
-    const REFRESH_TOKEN =
-      "1//04_5fjxEjf9bvCgYIARAAGAQSNwF-L9IrhzCwBC-ymuAJ3zDY6CoQdMaSJ9m-KypQ5egYY5wB-xM_-Gf1xDIHhuGs4shoDYfa6iA";
+    const REFRESH_TOKEN = "" ;
+     
     const auth2 = new google.auth.OAuth2(
       CLIENT_ID,
       CLIENT_SECRET,
