@@ -4,9 +4,10 @@ const controller = require("../controllers/app.controller");
 
 router.get("/", controller.index);
 
-router.post("/enviarMail", (req, res) => {
-  //controller.mail(req.body,res);
-  controller.sharepoint();
+router.post("/enviarMail", async (req, res) => {
+  controller.mail(req.body,res);
+ //var result = await controller.sharepoint(req);
+ //res.send(result);
 });
 
 module.exports = router;

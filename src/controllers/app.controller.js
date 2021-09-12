@@ -12,8 +12,17 @@ controller.index = (req, res) => {
   res.sendFile(path.join(__dirname, "../../public/index.html"));
 };
 
-controller.sharepoint = (req, res) => {
-  sp.getList();
+controller.sharepoint = async (req) => {
+  var msg = await sp
+    .getList()
+    .then((response) => {
+      return response;
+    })
+    .catch(function (error) {
+      return ("error");
+    });
+   
+  return msg;
 };
 
 controller.mail = async (request, resp) => {
