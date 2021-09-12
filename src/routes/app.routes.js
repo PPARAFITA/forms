@@ -5,7 +5,7 @@ const controller = require("../controllers/app.controller");
 router.get("/", controller.index);
 
 router.post("/enviarMail", async (req, res) => {
-  controller.mail(req.body,res);
+  controller.mail(req,res);
  //var result = await controller.sharepoint(req);
  //res.send(result);
 });

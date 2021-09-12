@@ -139,7 +139,7 @@ function emailBody(){
                   <!-- END OF TEXT-->
                   <!-- START OF LOGO-->
                   <tr>
-                    <td align="center" valign="top" style="border-top: 1px solid #484848; padding: 20px; font-size:13px ; color:#bbbbbb; font-family: Arial,sans-serif; line-height: 23px; "><a href="#" style="font-style: normal;"> <img src="https:bacardi.sharepoint.com/sites/ITPMO/Development/SiteAssets/Bacardi.png" width="89" height="60" alt="logo" border="0" style="display: inline-block;" /> </a></td>
+                    <td align="center" valign="top" style="border-top: 1px solid #484848; padding: 20px; font-size:13px ; color:#bbbbbb; font-family: Arial,sans-serif; line-height: 23px; "><a href="#" style="font-style: normal;"> <img src="cid:logo" width="89" height="60" alt="logo" border="0" style="display: inline-block;" /> </a></td>
                   </tr>
                   <!-- END OF LOGO-->
                 </table></td>

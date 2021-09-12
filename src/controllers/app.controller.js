@@ -19,34 +19,15 @@ controller.sharepoint = async (req) => {
       return response;
     })
     .catch(function (error) {
-      return ("error");
+      return "error";
     });
-   
+
   return msg;
 };
 
 controller.mail = async (request, resp) => {
-  // var status = mailer.enviarMail()
-  //  var status = new Observable((observer) => {
-  //    observer.next(mailer.enviarMail(request));
-  //  });
-
-  //status.subscribe(response => console.log('mail' + response));
-
   var status = await mailer.enviarMail(request.body);
-
   resp.send(status);
-
-  //console.log(status);
-  //res.send(status);
-
-  //status.then(function(value){
-  // console.log(value)
-  //res.send(value)
-  //})
-
-  //if(status)
-  //res.send(status);
 };
 
 module.exports = controller;

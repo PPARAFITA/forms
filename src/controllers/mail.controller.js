@@ -1,29 +1,36 @@
 const htmlMail = require("./emailBody");
 const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
-const SapCFMailer = require("sap-cf-mailer").default;
 const mailer = {};
+const path = require('path');
+
+// I like to use resolve so I always get an absolute path.
+
+
 
 mailer.enviarMail = async (input) => {
+  console.log(input);
   await mailTo(input)
     .then((response) => {
       return response;
     })
     .catch(function (error) {
-      console.log(error);
+      // console.log(error);
       return error;
     });
 };
 
-function mailTo(req) {
+function mailTo(data) {
   return new Promise(async (resolve, reject) => {
-    //let testAccount = await nodemailer.createTestAccount();
+    const publicPath = path.resolve(__dirname, "public");
+
     const CLIENT_ID =
       "539214896531-5kd3gvis26kkaqh1e0jg2o6qth9hvbur.apps.googleusercontent.com";
-    const CLIENT_SECRET = "" ;
+    const CLIENT_SECRET = "fkWMQfOafkPM0_NNiq1nEnL9";
     const REDIRECT_URI = "https://developers.google.com/oauthplayground";
-    const REFRESH_TOKEN = "" ;
-     
+    const REFRESH_TOKEN =
+      "1//04_5fjxEjf9bvCgYIARAAGAQSNwF-L9IrhzCwBC-ymuAJ3zDY6CoQdMaSJ9m-KypQ5egYY5wB-xM_-Gf1xDIHhuGs4shoDYfa6iA";
+
     const auth2 = new google.auth.OAuth2(
       CLIENT_ID,
       CLIENT_SECRET,
@@ -53,16 +60,22 @@ function mailTo(req) {
 
         },
     });*/
+    console.log(__dirname)
 
-    // var transport = new SapCFMailer("outlook");
-    console.log(req)
     transport.sendMail(
       {
         from: "bacardi <prueba@gmail.com>",
-        to: "priscila.parafita56@gmail.com",
+        to: data.email,
         subject: "New Request",
-        text: "Dear",
+        text: "Dear Prim@",
         html: htmlMail,
+        attachments: [
+          {
+            filename: "Bacardi.png",
+            path: path.join(__dirname, "../../public/images/Bacardi.png"),
+            cid: "logo", //my mistake was putting "cid:logo@cid" here!
+          },
+        ],
       },
       (error, info) => {
         if (error) {
