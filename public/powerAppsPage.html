@@ -265,7 +265,7 @@
 
   <body>
     <div class="testbox">
-      <form action="javascript:sendMail()" id="powerAppsForm">
+      <form action="javascript:sendMail()" id="powerAppsForm" enctype="multipart/form-data">
         <div class="banner"></div>
         <p>Application Information</p>
         <div class="item">
@@ -359,7 +359,7 @@
           <label for="fileBtn2">You can upload a file with app layout </label
           ><br /><br />
           <label id="lblFile" for="fileBtn" class="inputfile">Upload</label>
-          <input type="file" id="fileBtn" name="myfile" multiple hidden />
+          <input type="file" id="fileBtn" name="attachFile" multiple hidden />
         </div>
         <!--        <div class="question">
           <label>Gender</label>
@@ -436,7 +436,14 @@
           contentType: "application/json",
           data: JSON.stringify({
             name: $("#nameProject").val(),
+            devDate: $("#deadline").val(),
             email: $("#email").val(),
+            description: $("#description").val(),
+            dataSource: $("#dataSource").val(),
+            workflow: $("#workflow").val(),
+            brand: $("#brand").val(),
+            owner:$('#owner').val(),
+            domain:$('#domain').val()
           }),
           processData: false,
           success: function (data, textStatus, jQxhr) {},

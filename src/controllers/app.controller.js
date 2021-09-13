@@ -8,6 +8,7 @@ const { Observable } = require("rxjs");
 // I like to use resolve so I always get an absolute path.
 const publicPath = path.resolve(__dirname, "public");
 
+
 controller.index = (req, res) => {
   res.sendFile(path.join(__dirname, "../../public/index.html"));
 };

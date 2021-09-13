@@ -1,4 +1,4 @@
-function emailBody(){
+function emailBody(data){
 
     return (`
     <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#d0d0d0" style="padding: 0; margin: 0;">
@@ -19,7 +19,7 @@ function emailBody(){
               <!-- START OF CONTACT-->
               <td class="contact" align="right" valign="middle" width="270" bgcolor="#494949" style="padding: 0px;"><table width="100%">
                   <tr>
-                    <td class="center" align="" valign="" style="text-align: right; font-family:Arial, sans-serif; font-style: italic; color:#d8d8d8; font-size:11px; line-height:100%;"><img src="https:bacardi.sharepoint.com/sites/ITPMO/Development/SiteAssets/D-Logo Front.png" alt="email" width="180" height="60" style="display: inline; vertical-align: middle;" /></td>
+                    <td class="center" align="" valign="" style="text-align: right; font-family:Arial, sans-serif; font-style: italic; color:#d8d8d8; font-size:11px; line-height:100%;"><img src="cid:logoDev" alt="email" width="180" height="60" style="display: inline; vertical-align: middle;" /></td>
                   </tr>
                 </table></td>
               <!-- END OF CONTACT-->
@@ -49,7 +49,7 @@ function emailBody(){
               <td class="td_scale" width="600" bgcolor="#fd4326" align="center" valign="top" style="padding: 0px; font-size:14px ; color:#959595; font-family: Arial,sans-serif; line-height: 24px; "><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#fd4326" style="margin: 0;">
                   <!-- START OF BANNER-->
                   <tr>
-                    <td class="center" align="center" valign="top" bgcolor="#353535" style="padding:0; font-size: 16px; line-height: 24px; font-family:Lucida Sans Unicode; color:#262626; margin: 0 !important;"><a href="#" style="font-style: normal;"> <img class="img_scale" src="https:bacardi.sharepoint.com/sites/ITPMO/Development/SiteAssets/powerapps_logo.png" width="600" height="240" alt="featured banner" border="0" style="display: block;" /> </a></td>
+                    <td class="center" align="center" valign="top" bgcolor="#353535" style="padding:0; font-size: 16px; line-height: 24px; font-family:Lucida Sans Unicode; color:#262626; margin: 0 !important;"><a href="#" style="font-style: normal;"> <img class="img_scale" src="cid:logoPA" width="600" height="240" alt="featured banner" border="0" style="display: block;" /> </a></td>
                   </tr>
                   <tr>
                     <td height="20" bgcolor="#f0f0f0" style="padding:0; line-height: 0;">&nbsp;</td>
@@ -85,34 +85,34 @@ function emailBody(){
               
             </tr>
             <tr>
-              <td class="td_scale" width="20" align="left" valign="top" bgcolor="#f0f0f0" style="padding: 0px 20px; font-family:Arial, sans-serif; font-style: italic; color:#524c4c; font-size:13px; line-height:18px;">Project Name:</td>
+              <td class="td_scale" width="20" align="left" valign="top" bgcolor="#f0f0f0" style="padding: 0px 20px; font-family:Arial, sans-serif; font-style: italic; color:#524c4c; font-size:13px; line-height:18px;">Project Name: ` + data.name + `</td>
             </tr>
             <tr>
-              <td class="spacer" width="20" align="left" valign="top" bgcolor="#f0f0f0" style="padding: 0px 20px; font-family:Arial, sans-serif; font-style: italic; color:#524c4c; font-size:13px; line-height:18px;">Delivery deadline:</td>
+              <td class="spacer" width="20" align="left" valign="top" bgcolor="#f0f0f0" style="padding: 0px 20px; font-family:Arial, sans-serif; font-style: italic; color:#524c4c; font-size:13px; line-height:18px;">Delivery deadline: ` + data.devDate + `</td>
             </tr> 
             <tr>
-              <td class="spacer" width="20" align="left" valign="top" bgcolor="#f0f0f0" style="padding: 0px 20px; font-family:Arial, sans-serif; font-style: italic; color:#524c4c; font-size:13px; line-height:18px;">Email Address:</td>
+              <td class="spacer" width="20" align="left" valign="top" bgcolor="#f0f0f0" style="padding: 0px 20px; font-family:Arial, sans-serif; font-style: italic; color:#524c4c; font-size:13px; line-height:18px;">Email Address: ` + data.email + `</td>
             </tr>       
             <tr>
-              <td class="spacer" width="20" align="left" valign="top" bgcolor="#f0f0f0" style="padding: 0px 20px; font-family:Arial, sans-serif; font-style: italic; color:#524c4c; font-size:13px; line-height:18px;">Brief Description:</td>
+              <td class="spacer" width="20" align="left" valign="top" bgcolor="#f0f0f0" style="padding: 0px 20px; font-family:Arial, sans-serif; font-style: italic; color:#524c4c; font-size:13px; line-height:18px;">Brief Description: ` + data.description + `</td>
             </tr>      
             <tr>
-              <td class="spacer" width="20" align="left" valign="top" bgcolor="#f0f0f0"style="padding: 0px 20px; font-family:Arial, sans-serif; font-style: italic; color:#524c4c; font-size:13px; line-height:18px;">Data Source:</td>
+              <td class="spacer" width="20" align="left" valign="top" bgcolor="#f0f0f0"style="padding: 0px 20px; font-family:Arial, sans-serif; font-style: italic; color:#524c4c; font-size:13px; line-height:18px;">Data Source: ` + data.dataSource + `</td>
             </tr>     
             <tr>
-              <td class="spacer" width="20" align="left" valign="top" bgcolor="#f0f0f0"style="padding: 0px 20px; font-family:Arial, sans-serif; font-style: italic; color:#524c4c; font-size:13px; line-height:18px;">Device:</td>
+              <td class="spacer" width="20" align="left" valign="top" bgcolor="#f0f0f0"style="padding: 0px 20px; font-family:Arial, sans-serif; font-style: italic; color:#524c4c; font-size:13px; line-height:18px;">Device: ` + data.name + `</td>
             </tr> 
             <tr>
-              <td class="spacer" width="20" align="left" valign="top" bgcolor="#f0f0f0" style="padding: 0px 20px; font-family:Arial, sans-serif; font-style: italic; color:#524c4c; font-size:13px; line-height:18px;">Workflows:</td>
+              <td class="spacer" width="20" align="left" valign="top" bgcolor="#f0f0f0" style="padding: 0px 20px; font-family:Arial, sans-serif; font-style: italic; color:#524c4c; font-size:13px; line-height:18px;">Workflows: ` + data.workflow + `</td>
             </tr>                
             <tr>
-              <td class="spacer" width="20" align="left" valign="top" bgcolor="#f0f0f0" style="padding: 0px 20px; font-family:Arial, sans-serif; font-style: italic; color:#524c4c; font-size:13px; line-height:18px;">Branding:</td>
+              <td class="spacer" width="20" align="left" valign="top" bgcolor="#f0f0f0" style="padding: 0px 20px; font-family:Arial, sans-serif; font-style: italic; color:#524c4c; font-size:13px; line-height:18px;">Branding: ` + data.brand + `</td>
             </tr>         
             <tr>
-              <td class="spacer" width="20" align="left" valign="top" bgcolor="#f0f0f0" style="padding: 0px 20px; font-family:Arial, sans-serif; font-style: italic; color:#524c4c; font-size:13px; line-height:18px;">App owner:</td>
+              <td class="spacer" width="20" align="left" valign="top" bgcolor="#f0f0f0" style="padding: 0px 20px; font-family:Arial, sans-serif; font-style: italic; color:#524c4c; font-size:13px; line-height:18px;">App owner: ` + data.owner + `</td>
             </tr>     
             <tr>
-              <td class="spacer" width="20" align="left" valign="top" bgcolor="#f0f0f0" style="padding: 0px 20px; padding-bottom: 10px; font-family:Arial, sans-serif; font-style: italic; color:#524c4c; font-size:13px; line-height:18px;">Audience:</td>
+              <td class="spacer" width="20" align="left" valign="top" bgcolor="#f0f0f0" style="padding: 0px 20px; padding-bottom: 10px; font-family:Arial, sans-serif; font-style: italic; color:#524c4c; font-size:13px; line-height:18px;">Audience: ` + data.name + `</td>
             </tr>                                                           
           </table>
         </div>
@@ -163,4 +163,4 @@ function emailBody(){
 
 }
 
-   module.exports = emailBody(); 
+   module.exports = emailBody; 

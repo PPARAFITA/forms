@@ -1,12 +1,11 @@
 const htmlMail = require("./emailBody");
 const nodemailer = require("nodemailer");
+const multer = require("multer");
 const { google } = require("googleapis");
 const mailer = {};
-const path = require('path');
+const path = require("path");
 
 // I like to use resolve so I always get an absolute path.
-
-
 
 mailer.enviarMail = async (input) => {
   console.log(input);
@@ -20,6 +19,7 @@ mailer.enviarMail = async (input) => {
     });
 };
 
+ 
 function mailTo(data) {
   return new Promise(async (resolve, reject) => {
     const publicPath = path.resolve(__dirname, "public");
@@ -51,29 +51,36 @@ function mailTo(data) {
         refreshToken: REFRESH_TOKEN,
         accessToken: accessToken,
       },
-    }); /*
-      var transport = nodemailer.createTransport({
-        host: "smtp.office365.com",
-        port: 587,
-        secure: false, // true for 465, false for other ports
-        auth: {
+    });
 
-        },
-    });*/
-    console.log(__dirname)
+    var emailContent = htmlMail(data);
+    var maillist = [data.email, data.owner, "pparafita@bacardi.com"];
 
     transport.sendMail(
       {
-        from: "bacardi <prueba@gmail.com>",
-        to: data.email,
+        from: "Bacardi Dev Team <prueba@gmail.com>",
+        to: maillist,
         subject: "New Request",
         text: "Dear Prim@",
-        html: htmlMail,
+        html: emailContent,
         attachments: [
           {
             filename: "Bacardi.png",
             path: path.join(__dirname, "../../public/images/Bacardi.png"),
-            cid: "logo", //my mistake was putting "cid:logo@cid" here!
+            cid: "logo",
+          },
+          {
+            filename: "DevAreaLogo.png",
+            path: path.join(__dirname, "../../public/images/DevAreaLogo.png"),
+            cid: "logoDev",
+          },
+          {
+            filename: "powerapps_logo.png",
+            path: path.join(
+              __dirname,
+              "../../public/images/powerapps_logo.png"
+            ),
+            cid: "logoPA",
           },
         ],
       },
